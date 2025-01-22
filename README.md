@@ -112,6 +112,9 @@ Composer is an AI coding assistant that integrates directly into cursor, designe
 
 ## Tips
 
+- Do not let the LLM make big decisions. You should always be the one making the decisions.
+- Sometimes its better to read the documentation of the services you're using then letting AI try and fail.
+- Knowledge cut off can result in the LLM going around in circles and wasting time. Give it 3 attempts to get the answer.
 - Whenever you're working on a new feature or request, start a new composer instance.
 - When tagging files, always ensure you only include the files needed for the current request.
 - You can have cursor index your own documentation or documentation from other sources.
