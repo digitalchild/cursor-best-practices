@@ -1,0 +1,202 @@
+# [WordPress Plugin Name]
+
+You are an expert in WordPress, PHP, and related web development technologies.
+
+## Key Principles
+
+- Always write concise and clear code.
+- The fewer lines of code the better.
+- Follow WordPress Coding Standards (WPCS)
+- Use PHP 7.4+ features with type declarations
+- Use WordPress hooks (actions and filters) for extending functionality.
+- Use namespace-based autoloading (PSR-4)
+- Always think about performance and optimization
+- Prefer iteration and modularization over duplication.
+
+## Project Structure
+
+Structure the project files as follows:
+
+```plaintext
+plugin-name/
+├── .github/                # GitHub workflows
+├── .playwright/            # Playwright config and tests
+├── assets/
+│   ├── css/                # Compiled CSS files
+│   ├── js/                 # Compiled JS files
+│   └── src/                # Source files (SCSS, TypeScript)
+├── includes/               # PHP classes
+│   ├── Admin/              # Admin-related classes
+│   ├── Frontend/           # Frontend-related classes
+│   ├── Api/                # REST API endpoints
+│   ├── Blocks/             # Gutenberg blocks
+│   └── Core/               # Core plugin functionality
+├── languages/              # Translation files
+├── tests/
+│   ├── e2e/                # Playwright E2E tests
+│   └── php/                # PHPUnit tests
+├── vendor/                 # Composer dependencies
+├── composer.json           # Composer configuration
+├── package.json            # npm configuration
+├── phpcs.xml               # PHP CodeSniffer config
+├── phpunit.xml             # PHPUnit config
+├── playwright.config.ts    # Playwright config
+├── plugin-name.php         # Main plugin file
+└── README.md               # Plugin documentation
+```
+
+## Tech Stack
+
+- PHP 7.4+
+- WordPress 6.0+
+- Composer
+- npm/Node.js
+- TypeScript (for admin/blocks)
+- SCSS
+- Playwright
+- PHPUnit
+
+## Naming Conventions
+
+- Follow WordPress naming conventions
+- Use namespaces for PHP classes (PSR-4)
+- Class files: PascalCase (e.g., `PluginName.php`)
+- Hook names: lowercase with underscores (`plugin_name_action`)
+- Function names: CamelCase (e.g., `pluginNameAction`)
+- Constants: uppercase with underscores (e.g., `PLUGIN_NAME_CONSTANT`)
+
+## PHP Usage
+
+- Use strict typing where possible
+- Implement interfaces for dependency injection
+- Use proper PHPDoc blocks for all classes/methods
+- Follow WordPress hook patterns
+Example:
+
+```php
+<?php
+/**
+ * Class Admin_Page
+ *
+ * @package PluginName
+ * @since 1.0.0
+ */
+namespace PluginName\Admin;
+
+class Admin_Page {
+    /**
+     * Initialize the admin page.
+     *
+     * @since 1.0.0
+     * @return void
+     */
+    public function init(): void {
+        add_action('admin_menu', [$this, 'register_menu']);
+    }
+}
+```
+
+## WordPress Specific
+
+- Utilize features of PHP 7.4+ (e.g., typed properties, arrow functions) where applicable.
+- Follow WordPress PHP coding standards throughout the codebase.
+- Enable strict typing by adding declare(strict_types=1); at the top of PHP files.
+- Leverage core WordPress functions and APIs wherever possible.
+- Maintain WordPress theme and plugin directory structure and naming conventions.
+- Follow best practices for internationalization (i18n) by using WordPress localization functions.
+- Implement robust error handling:
+  - Use WordPress's built-in debug logging (WP_DEBUG_LOG).
+  - Implement custom error handlers if necessary.
+  - Apply try-catch blocks for controlled exception handling.
+- Always use WordPress’s built-in functions for data validation and sanitization.
+- Ensure secure form handling by verifying nonces in submissions.
+- For database interactions:
+  - Use WordPress’s $wpdb abstraction layer.
+  - Apply prepare() statements for all dynamic queries to prevent SQL injection.
+  - Use the dbDelta() function for managing database schema changes.
+- Implement proper activation/deactivation hooks
+- Use WordPress options API appropriately
+- Schedule tasks using WordPress’s WP_Cron API for automated workflows.
+- Manage scripts and styles by using wp_enqueue_script() and wp_enqueue_style().
+  - Use conditional loading for scripts and styles
+
+## State Management
+
+- Use WordPress options API
+- Implement proper transients when needed
+- Use WordPress metadata APIs appropriately
+
+## Testing
+
+- Use Playwright for E2E testing
+- PHPUnit for unit testing
+- WP_Mock for WordPress function mocking
+- Integration tests for critical workflows
+
+## Security
+
+- Apply proper security practices such as nonce verification, input sanitization, and data escaping.
+- Implement proper capability checks
+- Use WordPress sanitization functions
+- Implement proper nonce verification
+- Handle AJAX requests securely
+
+## Git Usage
+
+Commit Message Prefixes:
+
+- "Fix:" for bug fixes
+- "Feat:" for new features
+- "Test:" for adding tests
+- "Docs:" for documentation
+- "Chore:" for maintenance
+- "Style:" for WPCS fixes
+
+## Documentation and Comments
+
+- Maintain clear README with setup instructions and requirements
+- Use PHPDoc blocks for classes, methods, and functions
+- Add inline comments only for complex logic explaining "why" not "what"
+- Document hooks, filters, and API endpoints
+- Keep changelog updated (CHANGELOG.md)
+- Follow WordPress coding standards for comment formatting
+- Use translation comments for internationalization
+- Generate documentation from PHPDoc blocks using wp-documentor or similar tools
+
+## Development Workflow
+
+- Use composer for PHP dependencies
+- Use npm for frontend assets
+- Implement WPCS checks
+- Run automated tests
+- Follow semantic versioning
+
+## Build Process
+
+```bash
+# Install dependencies
+composer install
+npm install
+
+# Development
+npm run dev
+
+# Production build
+npm run build
+
+# Run tests
+composer test
+npm run test:e2e
+
+# WPCS checking
+composer run-script lint
+```
+
+## CI/CD
+
+- GitHub Actions for:
+  - WPCS validation
+  - PHPUnit tests
+  - Playwright tests
+  - Automated releases
+  - WordPress version compatibility checks
