@@ -99,9 +99,13 @@ The .cursorrules configuration is an essential component in Cursor AI developmen
 
 #### Example Cursor Rules Files
 
-- [WordPress Plugin](.cursorrules.wordpress.example) - This is an example of a `.cursorrules` file for a WordPress plugin project.
-- [Django Project](.cursorrules.django.md) - This is an example of a `.cursorrules` file for a Django project.
-- [Playwright Project](.cursorrules.playwright.wordpress.js.md) - This is an example of a `.cursorrules` file for a Playwright project in Javascript for WordPress.
+There are a number of example cursor rules files in the directories below. After selecting the rule you want, rename it to `.cursorrules` and it will be used automatically.
+
+- [WordPress Plugin](WordPress/.cursorrules.wordpress.plugin.md)
+- [WordPress Theme](WordPress/.cursorrules.wordpress.theme.md)  
+- [Django Project](Django/.cursorrules.django.md)
+- [Playwright Project](Playwright/.cursorrules.playwright.wordpress.js.md)
+- [Claude 3.7](Claude/.cursorrules.claude3.7.md)
 
 ### Cursor ignore files
 
