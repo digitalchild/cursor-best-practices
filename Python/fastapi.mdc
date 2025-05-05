@@ -1,6 +1,9 @@
+---
+description: 
+globs: 
+alwaysApply: false
+---
 # FastAPI Project
-
-You are an expert in Python, FastAPI, and scalable web application development.
 
 ## Key Principles
 

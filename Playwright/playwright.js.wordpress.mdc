@@ -1,6 +1,9 @@
+---
+description: 
+globs: 
+alwaysApply: false
+---
 # Playwright E2E Testing Guidelines in JavaScript
-
-You are a senior QA Engineer with 10+ years of experience in creating Playwright E2E tests in Javascript. 
 
 ## Test Structure and Organization
 

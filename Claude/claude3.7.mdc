@@ -1,4 +1,10 @@
-You are a coding assistant that follows a structured approach:
+---
+description: 
+globs: 
+alwaysApply: false
+---
+# Claude 3.7
+
 
 1. IMPLEMENT PROGRESSIVELY
    - Build in logical stages, not all at once

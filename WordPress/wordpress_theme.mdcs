@@ -1,0 +1,240 @@
+# [WordPress Theme Name]
+
+## Project Description
+
+[Project Description]
+
+## Key Principles
+
+- Always write concise and clear code.
+- The fewer lines of code the better.
+- Follow WordPress Coding Standards (WPCS)
+- Use PHP 7.4+ features with type declarations
+- Use WordPress hooks (actions and filters) for extending functionality.
+- Use namespace-based autoloading (PSR-4)
+- Always think about performance and optimization
+- Prefer iteration and modularization over duplication.
+
+## Project Structure
+
+Structure the project files as follows:
+
+```plaintext
+theme-name/
+├── assets/
+│   ├── css/                # Compiled CSS files
+│   ├── js/                 # Compiled JS files
+│   └── src/                # Source files (SCSS, TypeScript)
+├── inc/                    # PHP includes
+│   ├── customizer/         # Customizer settings
+│   ├── template-tags/      # Template tags
+│   ├── widgets/            # Custom widgets
+│   └── core/               # Core theme functionality
+├── languages/              # Translation files
+├── templates/              # Template parts
+├── vendor/                 # Composer dependencies
+├── composer.json           # Composer configuration
+├── package.json            # npm configuration
+├── phpcs.xml               # PHP CodeSniffer config
+├── functions.php           # Main theme functions file
+├── style.css               # Main stylesheet
+└── README.md               # Theme documentation
+```
+
+## Tech Stack
+
+- PHP 7.4+
+- WordPress 6.0+
+- Composer
+- npm/Node.js
+- TypeScript (for admin/blocks)
+- SCSS
+- Playwright
+- PHPUnit
+
+## Naming Conventions
+
+- Follow WordPress naming conventions
+- Use namespaces for PHP classes (PSR-4)
+- Class files: PascalCase (e.g., `ThemeName.php`)
+- Hook names: lowercase with underscores (`theme_name_action`)
+- Function names: CamelCase (e.g., `themeNameAction`)
+- Constants: uppercase with underscores (e.g., `THEME_NAME_CONSTANT`)
+
+## Coding Standards
+
+- Follow WordPress PHP Coding Standards (WPCS)
+- Use WordPress Code Sniffer (PHPCS) with WordPress-Extra ruleset
+- Follow PSR-12 where it doesn't conflict with WPCS
+- Key standards include:
+  - Use tabs for indentation
+  - Space after control structure keywords
+  - Space before/after operators
+  - No trailing whitespace
+  - Line length should be 100 characters or less
+  - Always use braces for control structures
+  - File names should be descriptive and lowercase
+  - Add proper documentation blocks
+  - Use meaningful variable names
+  - Validate and sanitize all data
+  - Escape output appropriately
+  - Use WordPress prefix for functions/hooks
+  - Follow WordPress security best practices:
+    - Use nonces for forms
+    - Sanitize inputs (sanitize_*)
+    - Escape outputs (esc_*)
+    - Use capability checks
+    - Implement CSRF protection
+
+## UI / UX Guidelines
+
+- Use WordPress theme styles and patterns
+- Implement responsive design
+- Use consistent spacing and alignment
+- Add clear feedback for user actions
+- Use WordPress theme color scheme
+
+## PHP Usage
+
+- Use strict typing where possible
+- Implement interfaces for dependency injection
+- Use proper PHPDoc blocks for all classes/methods
+- Follow WordPress hook patterns
+Example:
+
+```php
+<?php
+/**
+ * Class Theme_Setup
+ *
+ * @package ThemeName
+ * @since 1.0.0
+ */
+namespace ThemeName\Core;
+
+class Theme_Setup {
+    /**
+     * Initialize the theme setup.
+     *
+     * @since 1.0.0
+     * @return void
+     */
+    public function init(): void {
+        add_action('after_setup_theme', [$this, 'setup']);
+    }
+}
+```
+
+## WordPress Specific
+
+- Utilize features of PHP 7.4+ (e.g., typed properties, arrow functions) where applicable.
+- Follow WordPress PHP coding standards throughout the codebase.
+- Enable strict typing by adding declare(strict_types=1); at the top of PHP files.
+- Leverage core WordPress functions and APIs wherever possible.
+- Maintain WordPress theme directory structure and naming conventions.
+- Follow best practices for internationalization (i18n) by using WordPress localization functions.
+- Implement robust error handling:
+  - Use WordPress's built-in debug logging (WP_DEBUG_LOG).
+  - Implement custom error handlers if necessary.
+  - Apply try-catch blocks for controlled exception handling.
+- Always use WordPress's built-in functions for data validation and sanitization.
+- Ensure secure form handling by verifying nonces in submissions.
+- For database interactions:
+  - Use WordPress's $wpdb abstraction layer.
+  - Apply prepare() statements for all dynamic queries to prevent SQL injection.
+  - Use the dbDelta() function for managing database schema changes.
+- Implement proper activation/deactivation hooks
+- Use WordPress options API appropriately
+- Schedule tasks using WordPress's WP_Cron API for automated workflows.
+- Manage scripts and styles by using wp_enqueue_script() and wp_enqueue_style().
+  - Use conditional loading for scripts and styles
+
+## State Management
+
+- Use WordPress options API
+- Implement proper transients when needed
+- Use WordPress metadata APIs appropriately
+
+## Testing
+
+- Use Playwright for E2E testing
+- PHPUnit for unit testing
+- WP_Mock for WordPress function mocking
+- Integration tests for critical workflows
+
+## Security
+
+- Apply proper security practices such as nonce verification, input sanitization, and data escaping.
+- Implement proper capability checks
+- Use WordPress sanitization functions
+- Implement proper nonce verification
+- Handle AJAX requests securely
+
+## Git Usage
+
+Commit Message Prefixes:
+
+- "Fixed:" for bug fixes
+- "Added:" for new features
+- "Perf:" for performance improvements
+- "Docs:" for documentation changes
+- "Style:" for formatting changes
+- "Refactor:" for code refactoring
+- "Test:" for adding missing tests
+- "Chore:" for maintenance tasks
+
+Rules:
+
+- Use lowercase for commit messages
+- Keep the summary line concise
+- Include description for non-obvious changes
+- Reference issue numbers when applicable
+
+## Documentation and Comments
+
+- Maintain clear README with setup instructions and requirements
+- Use PHPDoc blocks for classes, methods, and functions
+- Add inline comments only for complex logic explaining "why" not "what"
+- Document hooks, filters, and API endpoints
+- Keep changelog updated (CHANGELOG.md)
+- Follow WordPress coding standards for comment formatting
+- Use translation comments for internationalization
+- Generate documentation from PHPDoc blocks using wp-documentor or similar tools
+
+## Development Workflow
+
+- Use composer for PHP dependencies
+- Use npm for frontend assets
+- Implement WPCS checks
+- Run automated tests
+- Follow semantic versioning
+
+## Build Process
+
+```bash
+# Install dependencies
+composer install
+npm install
+
+# Development
+npm run dev
+
+# Production build
+npm run build
+
+# Run tests
+composer test
+npm run test:e2e
+
+# WPCS checking
+composer run-script lint
+```
+
+## CI/CD
+
+- GitHub Actions for:
+  - WPCS validation
+  - PHPUnit tests
+  - Playwright tests
+  - Automated releases
+  - WordPress version compatibility checks

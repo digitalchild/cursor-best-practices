@@ -1,6 +1,9 @@
+---
+description: 
+globs: 
+alwaysApply: false
+---
 # Django Project
-
-You are an expert in Python, Django, and scalable web application development.
 
 ## Key Principles
 
